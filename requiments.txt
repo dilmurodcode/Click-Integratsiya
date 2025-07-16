@@ -1,0 +1,5 @@
+click-pkg==0.14
+Django==5.2.4
+requests==2.32.4
+certifi==2025.7.14
+djangorestframework==3.16.0
