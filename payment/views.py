@@ -17,7 +17,9 @@ class ClickWebhookAPIView(ClickWebhook):
         order.save()
 
     def cancelled_payment(self, params):
-
+        """
+        cancelled payment method process you can ovveride it
+        """
         transaction = ClickTransaction.objects.get(
             transaction_id=params.click_trans_id
         )
