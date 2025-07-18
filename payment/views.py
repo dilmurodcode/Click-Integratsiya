@@ -24,7 +24,3 @@ class ClickWebhookAPIView(ClickWebhook):
             transaction_id=params.click_trans_id
         )
 
-        if transaction.state == ClickTransaction.CANCELLED:
-            order = Order.objects.get(id=transaction.account_id)
-            order.is_paid = False
-            order.save()
