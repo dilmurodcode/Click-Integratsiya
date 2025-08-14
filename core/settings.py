@@ -12,17 +12,16 @@ ALLOWED_HOSTS = ["*"]
 
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'paytechuz.integrations.django',
+    "order",
 
-    "shop",
-    "payment",
-
-    "click_up"
 ]
 
 MIDDLEWARE = [
@@ -35,7 +34,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'backent.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
@@ -52,7 +51,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backent.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 CLICK_SERVICE_ID = "CLICK_SERVICE_ID"
@@ -66,6 +65,18 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+PAYTECHUZ = {
+    'CLICK': {
+        'SERVICE_ID': 'your_service_id',
+        'MERCHANT_ID': 'your_merchant_id',
+        'MERCHANT_USER_ID': 'your_merchant_user_id',
+        'SECRET_KEY': 'your_secret_key',
+        'ACCOUNT_MODEL': 'your_app.models.Order',
+        'COMMISSION_PERCENT': 0.0,
+        'IS_TEST_MODE': True,
     }
 }
 
