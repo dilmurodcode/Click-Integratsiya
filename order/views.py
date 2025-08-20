@@ -12,4 +12,4 @@ class ClickWebhookView(BaseClickWebhookView):
     def cancelled_payment(self, params, transaction):
         order = Order.objects.get(id=transaction.account_id)
         order.status = 'cancelled'
-        # order.save()
+        order.save()
